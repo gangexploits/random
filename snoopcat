@@ -1,0 +1,119 @@
+local plr = game:GetService("Players").LocalPlayer.Character.Name
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/zxciaz/VenyxUI/main/Reuploaded"))() --someone reuploaded it so I put it in place of the original back up so guy can get free credit.
+local venyx = library.new("for Forevernbeyond#9999", 5013109572)
+
+-- themes
+local themes = {
+Background = Color3.fromRGB(24, 24, 24),
+Glow = Color3.fromRGB(0, 0, 0),
+Accent = Color3.fromRGB(10, 10, 10),
+LightContrast = Color3.fromRGB(20, 20, 20),
+DarkContrast = Color3.fromRGB(14, 14, 14),  
+TextColor = Color3.fromRGB(255, 255, 255)
+}
+--credits
+local page = venyx:addPage("Credits", 5012544693)
+local section1 = page:addSection("Made By:")
+local section2 = page:addSection("gangexploits#3231")
+
+-- second page
+local page = venyx:addPage("Main", 5012544693)
+local section1 = page:addSection("features")
+section1:addToggle("auto use triple coins", nil, function(C)
+    getgenv().Cs = C
+    if getgenv().Cs then
+    _G.Click = true
+    
+    while _G.Click do wait()
+        local args = {
+            [1] = {
+                [1] = "Triple Coins"
+            }
+        }
+        
+        workspace.THINGS.REMOTES:FindFirstChild("activate boost"):FireServer(unpack(args))
+    
+        end
+    else
+    _G.Click = false
+    end
+    end)
+    --triple damage
+    section1:addToggle("auto use triple damage", nil, function(d)
+        getgenv().Cs = d
+        if getgenv().Cs then
+        _G.Click = true
+        
+        while _G.Click do wait()
+            local args = {
+                [1] = {
+                    [1] = "Triple Damage"
+                }
+            }
+            
+            workspace.THINGS.REMOTES:FindFirstChild("activate boost"):FireServer(unpack(args))
+        
+            end
+        else
+        _G.Click = false
+        end
+        end)
+        --super lucky
+        section1:addToggle("auto use super lucky", nil, function(s)
+            getgenv().Cs = s
+            if getgenv().Cs then
+            _G.Click = true
+            
+            while _G.Click do wait()
+                local args = {
+                    [1] = {
+                        [1] = "Super Lucky"
+                    }
+                }
+                
+                workspace.THINGS.REMOTES:FindFirstChild("activate boost"):FireServer(unpack(args))
+            
+                end
+            else
+            _G.Click = false
+            end
+            end)
+    --ultra lucky
+    section1:addToggle("auto use Ultra Lucky", nil, function(u)
+        getgenv().Cs = u
+        if getgenv().Cs then
+        _G.Click = true
+        
+        while _G.Click do wait()
+            local args = {
+                [1] = {
+                    [1] = "Ultra Lucky"
+                }
+            }
+            
+            workspace.THINGS.REMOTES:FindFirstChild("activate boost"):FireServer(unpack(args))
+        
+            end
+        else
+        _G.Click = false
+        end
+        end)
+    section1:addButton("Kill GUI", function()
+        game.CoreGui["for Forevernbeyond#9999"]:Destroy()
+        end)
+    section2:addKeybind("Toggle Keybind", Enum.KeyCode.LeftControl, function()
+        print("Activated Keybind")
+        venyx:toggle()
+        end, function()
+        print("Changed Keybind")
+        end)
+        --themes page
+local theme = venyx:addPage("Theme", 5012544693)
+local colors = theme:addSection("Colors")
+
+for theme, color in pairs(themes) do -- all in one theme changer, i know, im cool
+colors:addColorPicker(theme, color, function(color3)
+venyx:setTheme(theme, color3)
+end)
+end
+venyx:SelectPage(venyx.pages[1], true)
